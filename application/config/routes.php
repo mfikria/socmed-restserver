@@ -53,10 +53,19 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;
 
+$route['user/(:any)'] = FALSE;
+$route['sosmedusers/(:num)'] = 'user/id/$1';
+$route['sosmedusers'] = 'user';
+$route['sosmedusers/(:num)/exists'] = 'user/exists/id/$1';
+$route['sosmedusers/(:num)/posts'] = 'user/posts/id/$1';
+$route['sosmedusers/(:num)/posts/(:num)'] = 'user/postwithid/id/$1';
+$route['sosmedusers/(:num)/posts/count'] = 'user/countposts/id/$1';
+$route['socmedusers/count'] = 'user/count';
+
 /*
 | -------------------------------------------------------------------------
 | Sample REST API Routes
 | -------------------------------------------------------------------------
 */
-$route['api/example/users/(:num)'] = 'api/example/users/id/$1'; // Example 4
-$route['api/example/users/(:num)(\.)([a-zA-Z0-9_-]+)(.*)'] = 'api/example/users/id/$1/format/$3$4'; // Example 8
+// $route['api/example/users/(:num)'] = 'api/example/users/id/$1'; // Example 4
+// $route['api/example/users/(:num)(\.)([a-zA-Z0-9_-]+)(.*)'] = 'api/example/users/id/$1/format/$3$4'; // Example 8
