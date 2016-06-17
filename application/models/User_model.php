@@ -11,7 +11,7 @@
 			parent::__construct();
 		}
 
-		function get_all_users(){
+		function get_all_user(){
 			// Melakukan list semua user yang terdaftar
 			$query = $this->db->get($this->table);
 			$ret = $query->result_array();
@@ -29,7 +29,7 @@
 			// Mendapatkan user dengan {id} tertentu
 			$this->db->where('id', $id);
 			$query = $this->db->get($this->table);
-			$ret = $query->result_array();
+			$ret = $query->result();
 			return $ret;
 		}
 
